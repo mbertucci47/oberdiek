@@ -1,6 +1,6 @@
 # Oberdiek bundle
 
-Version: 2023-12-04
+Version: 2024-07-26
 
 This file describes the directory
   CTAN:macros/latex/contrib/oberdiek/
@@ -11,7 +11,7 @@ It contains several packages:
 
 ## Copyright (C)
 * 2007, 2009-2011  Heiko Oberdiek
-* 2016-2023        Oberdiek Package Support Group
+* 2016-2024        Oberdiek Package Support Group
 
 ## License
 LATEX Project Public License, version 1.3c or later.
@@ -66,6 +66,5 @@ Other files in the CTAN directory:
 * stampinclude: selects the files for \include by inspecting the timestamp of the .aux file(s);
 * tabularht: tabulars with height specification;
 * tabularkv: key value interface for tabular parameters;
-* telprint: print German telephone numbers;
 * thepdfnumber: canonical numbers for use in PDF files and elsewhere;
 * twoopt: commands with two optional arguments;
