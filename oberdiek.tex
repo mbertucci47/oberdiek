@@ -203,8 +203,6 @@
 [\entrysep]
 \entry{hypbmsec}{Bookmarks in sectioning commands}%
 [\entrysep]
-\entry{hypcap}{Adjusting the anchors of captions}%
-[\entrysep]
 \entry{hypgotoe}{Links to embedded files}%
 [\entrysep]
 \entry{hyphsubst}{Substitute hyphenation patterns}%
@@ -387,20 +385,6 @@ argument of the sectioning commands isn't usable as outline entry,
 a replacement for the bookmarks can be given.
 \end{abstract}
 \tocinclude{hypbmsec}
-
-\newpage
-\subsection{\pkgsectformat{hypcap}}
-\label{hypcap}
-\begin{abstract}
-This package tries a solution of the problem with
-hyperref, that links to floats points below the
-caption and not at the beginning of the float.
-Therefore this package divides the task into two
-part, the link setting with \cs{capstart} or
-automatically at the beginning of a float and
-the rest in the \cs{caption} command.
-\end{abstract}
-\tocinclude{hypcap}
 
 \newpage
 \subsection{\pkgsectformat{hypgotoe}}

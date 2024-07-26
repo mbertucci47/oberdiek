@@ -48,7 +48,6 @@ Other files in the CTAN directory:
 * flags: setting and clearing flags in bit fields and converting the bit field into a decimal number;
 * holtxdoc: extra documentation macros;
 * hypbmsec: bookmarks in sectioning commands;
-* hypcap: anjusting anchors of captions;
 * hypgotoe: experimental package for links to embedded files;
 * hyphsubst: substitute hyphenation patterns;
 * ifdraft: switch for option draft;
