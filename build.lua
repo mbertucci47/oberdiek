@@ -167,3 +167,55 @@ tdslocations={
 "tex/latex/oberdiek/tabularkv.sty",
 "tex/latex/oberdiek/twoopt.sty",
 }
+
+
+-- by default only bump the version (date) and copyright year in README.md and oberdiek.tex
+tagfiles = {"README.md", "oberdiek.tex"}
+
+-- list any dtx files who's version should be bumped this time, eg
+-- tagfiles = {"twoopt.dtx", "README.md", "oberdiek.tex"}
+
+
+function update_tag(file,content,tagname,tagdate)
+
+local tagpattern="Version: (%d%d%d%d[-/]%d%d[-/]%d%d) v(%d+[.])(%d+)"
+local oldv,newv
+if tagname == 'auto' then
+if file == "README.md" then
+print('USING NEW TAG: ' .. tagdate)
+ content=string.gsub(content,'%* 2016%-%d%d%d%d','* 2016-' .. os.date("%Y"))
+ content=string.gsub(content,"Version: (%d%d%d%d[-/]%d%d[-/]%d%d)", "Version: " .. tagdate)
+return content
+elseif file == "oberdiek.tex" then
+print('USING NEW TAG: ' .. tagdate)
+ content=string.gsub(content,'%(C%) 2016%-%d%d%d%d','(C) 2016-' .. os.date("%Y"))
+ content=string.gsub(content,"{\\Date}{(%d%d%d%d[-/]%d%d[-/]%d%d)", "{\\Date}{" .. tagdate)
+return content
+else
+  local i,j,olddate,a,b
+  i,j,olddate,a,b= string.find(content, tagpattern)
+  if i == nil then
+    print('OLD TAG NOT FOUND')
+    return content
+  else
+    print ('FOUND: ' .. olddate .. ' v' .. a .. b )
+    oldv = olddate .. ' v' .. a .. b
+    newv = tagdate .. ' v'  .. a .. math.floor(b + 1)
+    print('USING OLD TAG: ' .. oldv)
+    print('USING NEW TAG: ' .. newv)
+    local oldpattern = string.gsub(oldv,"[-/]", "[-/]")
+    content=string.gsub(content,"{Version}{" .. oldpattern,'##OLDV##')
+    content=string.gsub(content,oldpattern,newv)
+    content=string.gsub(content,'##OLDV##',"{Version}{" .. oldv)
+    content=string.gsub(content,'%-%d%d%d%d Oberdiek Package','-' .. os.date("%Y") .. " Oberdiek Package")
+    content = string.gsub(content,
+        '%% \\end{History}',
+	'%%   \\begin{Version}{' .. newv .. '}\n%%   \\item Updated\n%%   \\end{Version}\n%% \\end{History}')
+    return content
+  end
+end
+else
+  error("only automatic tagging supported")
+end
+
+end
