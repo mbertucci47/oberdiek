@@ -1,6 +1,6 @@
 # Oberdiek bundle
 
-Version: 2024-07-26
+Version: 2024-08-07
 
 This file describes the directory
   CTAN:macros/latex/contrib/oberdiek/

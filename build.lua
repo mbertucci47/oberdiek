@@ -173,7 +173,7 @@ tdslocations={
 tagfiles = {"README.md", "oberdiek.tex"}
 
 -- list any dtx files who's version should be bumped this time, eg
--- tagfiles = {"twoopt.dtx", "README.md", "oberdiek.tex"}
+-- tagfiles = {"enparen.dtx", "hypbmsec.dtx", "README.md", "oberdiek.tex"}
 
 
 function update_tag(file,content,tagname,tagdate)
